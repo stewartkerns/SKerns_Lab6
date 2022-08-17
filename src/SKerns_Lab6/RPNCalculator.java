@@ -82,7 +82,7 @@ public class RPNCalculator {
      * This method welcomes the user to the program
      */
     public static void welcome(){
-        System.out.println("RPN Calulator\n\nPlease enter a space between " +
+        System.out.println("RPN Calculator\n\nPlease enter a space between " +
                 "operators and operands. (blank line to quit)");
     }
 

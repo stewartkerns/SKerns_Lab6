@@ -6,11 +6,14 @@
 
 package SKerns_Lab6;
 
+//import the scanner class
 import java.util.Scanner;
 
 /**
  * This program uses a stack to create all the logic needed to make a Reverse
- * Polish Notation calculator.   TODO ask Bob about descriptions
+ * Polish Notation calculator. It can take in a string of operands and
+ * operators through the evaluate method and which will return the calculations
+ * requested.
  *
  * @author Stewart Kerns
  * @version 1.0
@@ -25,17 +28,8 @@ public class RPN {
     //result of the calculations
     double dbl1, dbl2, result;
 
-//    /**
-//     * This no arg constructor
-//     */
-//    public RPN() {
-//        this.userString = "";
-//        this.dbl1 = 0;
-//        this.dbl2 = 0;
-//    }
-
     /**
-     * This constructor takes in a users's string and sets it to userString, it
+     * This constructor takes in a users' string and sets it to userString, it
      * also initializes dbl2 and dbl1 to 0
      * @param userString a String of operators and operands to be calculated by
      *                   reverse polish notation
@@ -64,7 +58,7 @@ public class RPN {
                 stack.push(scanString.nextDouble());
             }
 
-            //if it's not a double, do an operation
+            //if it's not a double, do the required operation
             else {
                 //get the operator as the next value that's not whitespace
                 char operator = scanString.next().charAt(0);
@@ -143,22 +137,35 @@ public class RPN {
             case '+':
                 result = dbl1 + dbl2;
                 break;
+
             //do subtraction
             case '-':
                 result = dbl1 - dbl2;
                 break;
+
             //do multiplication
             case '*':
                 result = dbl1 * dbl2;
                 break;
+
             //do division
             case '/':
                 result = dbl1 / dbl2;
                 break;
+
             //throw an error if an invalid operator was used
             default:
                 throw new IllegalArgumentException("Unknown operator: " +
                         operator);
         }
+    }
+
+    /**
+     * This setter is used to set the userString to the input received
+     * @param userString a String of operators and operands
+     */
+    public void setUserString(String userString) {
+        //set userString
+        this.userString = userString;
     }
 }
